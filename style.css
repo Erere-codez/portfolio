@@ -1,0 +1,129 @@
+:root {
+  --navy: #1F2F46;
+  --navy-soft: #D5DAE2;
+  --gold: #C9A24B;
+  --gold-ink: #8A6A1F;
+  --paper: #FAF9F6;
+  --ink: #1C2330;
+  --muted: #5A6372;
+  --line: #E3E0D8;
+  --side: 19rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #141A24;
+    --ink: #E8EAEE;
+    --muted: #A3ABB8;
+    --line: #2A3342;
+    --gold-ink: #D9B968;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+
+.layout { display: grid; grid-template-columns: var(--side) 1fr; min-height: 100vh; }
+
+aside {
+  background: var(--navy);
+  color: #fff;
+  padding: 3rem 2rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+aside h1 { font-size: 1.75rem; line-height: 1.15; margin: 0 0 .5rem; font-weight: 700; letter-spacing: -0.01em; }
+aside .role { color: var(--gold); font-weight: 600; margin: 0 0 2.25rem; }
+aside h2 {
+  font-size: 1rem;
+  color: var(--gold);
+  margin: 0 0 .75rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid var(--gold);
+  font-weight: 600;
+}
+aside ul { list-style: none; margin: 0 0 2rem; padding: 0; }
+aside li { margin-bottom: .55rem; color: var(--navy-soft); font-size: .95rem; overflow-wrap: anywhere; }
+aside a { text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.3); }
+aside a:hover { border-color: var(--gold); color: #fff; }
+
+main { padding: 4rem clamp(1.5rem, 5vw, 4.5rem) 5rem; max-width: 52rem; }
+section { margin-bottom: 3.25rem; }
+section h2 {
+  font-size: 1.35rem;
+  margin: 0 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+  font-weight: 600;
+}
+p { margin: 0 0 1rem; max-width: 62ch; }
+.summary { font-size: 1.2rem; line-height: 1.6; }
+
+.entry { padding: 1.1rem 0; border-top: 1px solid var(--line); }
+.entry:first-of-type { border-top: 0; padding-top: 0; }
+.entry h3 { margin: 0; font-size: 1.05rem; font-weight: 600; }
+.entry .meta { color: var(--muted); font-size: .92rem; margin: .15rem 0 .5rem; }
+.entry p { margin-bottom: .5rem; }
+.entry a { color: var(--gold-ink); font-weight: 500; }
+
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.5rem 2rem; }
+.skills h3 { margin: 0 0 .4rem; font-size: 1rem; font-weight: 600; }
+.skills ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+.skills li { margin-bottom: .2rem; }
+.skills li::marker { color: var(--gold); }
+
+.strengths { margin: 0; padding-left: 1.1rem; }
+.strengths li { margin-bottom: .4rem; }
+.strengths li::marker { color: var(--gold); }
+
+.button {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  text-decoration: none;
+  padding: .7rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  border: 2px solid var(--navy);
+}
+.button:hover { background: transparent; color: var(--ink); }
+.button.alt { background: transparent; color: var(--ink); border-color: var(--line); }
+.button.alt:hover { border-color: var(--gold); }
+@media (prefers-color-scheme: dark) {
+  .button { background: var(--gold); border-color: var(--gold); color: #141A24; }
+  .button:hover { background: transparent; color: var(--ink); }
+  .button.alt { background: transparent; color: var(--ink); border-color: var(--line); }
+}
+
+/* Contact page */
+.contact-list { list-style: none; margin: 0 0 2rem; padding: 0; max-width: 34rem; }
+.contact-list li { border-top: 1px solid var(--line); }
+.contact-list li:last-child { border-bottom: 1px solid var(--line); }
+.contact-list a {
+  display: block;
+  padding: 1.1rem .25rem;
+  text-decoration: none;
+}
+.contact-list a:hover { background: rgba(201,162,75,.12); }
+.contact-list .label { display: block; font-weight: 600; font-size: 1.05rem; }
+.contact-list .value { display: block; color: var(--gold-ink); overflow-wrap: anywhere; }
+
+footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
+
+@media (max-width: 52rem) {
+  .layout { grid-template-columns: 1fr; }
+  aside { position: static; height: auto; padding: 2.5rem 1.5rem 1.5rem; }
+  aside ul { margin-bottom: 1.5rem; }
+  main { padding: 2.5rem 1.5rem 4rem; }
+}
